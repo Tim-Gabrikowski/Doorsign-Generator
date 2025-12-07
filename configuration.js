@@ -1,8 +1,4 @@
-let persons = [
-	{ name: "Max Mustermann", position: "Entwickler", important: true },
-	{ name: "Erika Musterfrau", position: "Designer", important: false },
-	{ name: "Hans Beispiel", position: "Manager", important: false },
-];
+let persons = [];
 
 function getCurrentConfiguration() {
 	let generalInfo = getGeneralInfo();
