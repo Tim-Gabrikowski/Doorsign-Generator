@@ -1,3 +1,7 @@
+#controls {
+	font-family: "BundesSansWeb";
+}
+
 div.settingsBlock.disabled {
 	opacity: 0.5;
 }
@@ -92,4 +96,31 @@ button:disabled {
 }
 button:disabled:hover {
 	background: none;
+}
+
+label#imageSelectLabel p {
+	margin: 0;
+	font-weight: bold;
+}
+
+.button,
+button {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 0.5em;
+	background-color: #ccc;
+	cursor: pointer;
+	border: none;
+}
+.button:hover,
+button:hover {
+	background-color: #bbb;
+	cursor: pointer;
+}
+
+.fileSelected {
+	background-color: rgb(170, 255, 186);
 }

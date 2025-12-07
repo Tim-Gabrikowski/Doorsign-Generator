@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Türschild Designer</title>
+		<link rel="stylesheet" href="fonts/font.css" />
 		<link rel="stylesheet" href="styles.css" />
 		<link rel="stylesheet" href="controlStyles.css" />
 		<link rel="stylesheet" href="signStyles.css" />
@@ -47,6 +48,7 @@
 							type="text"
 							name="personNameInput"
 							id="personNameInput"
+							placeholder="Hier eingeben"
 						/>
 					</div>
 					<div class="input">
@@ -55,6 +57,7 @@
 							type="text"
 							name="personPositionInput"
 							id="personPositionInput"
+							placeholder="Hier eingeben"
 						/>
 					</div>
 					<div class="input">
@@ -87,6 +90,7 @@
 							type="text"
 							name="warningHeadingInput"
 							id="warningHeadingInput"
+							placeholder="Hier eingeben"
 						/>
 					</div>
 					<div class="input">
@@ -95,6 +99,7 @@
 							type="text"
 							name="warningTextInput"
 							id="warningTextInput"
+							placeholder="Hier eingeben"
 						/>
 					</div>
 				</div>
@@ -110,12 +115,23 @@
 						<h2>Bild</h2>
 					</div>
 					<div class="input">
-						<label for="imageSrcInput">Bildquelle (Pfad)</label>
+						<label
+							for="imageSelectInput"
+							id="imageSelectLabel"
+							class="button"
+						>
+							<p>Bild hochladen</p>
+							<img
+								src="./img/add_image.svg"
+								alt="Bild hochladen"
+							/>
+						</label>
 						<input
-							type="text"
-							name="imageSrcInput"
-							id="imageSrcInput"
+							type="file"
+							name="imageSelectInput"
+							id="imageSelectInput"
 							placeholder="./logo/settings.svg"
+							style="display: none"
 						/>
 					</div>
 				</div>
@@ -166,16 +182,16 @@
 	<script>
 		updateConfigurationDisplay();
 
-		function generatePreview() {
+		async function generatePreview() {
 			let configuration = getCurrentConfiguration();
-			renderPreview(configuration);
+			await renderPreview(configuration);
 		}
 		document
 			.getElementById("previewButton")
 			.addEventListener("click", generatePreview);
 
-		function printPreview() {
-			generatePreview();
+		async function printPreview() {
+			await generatePreview();
 			window.print();
 		}
 		document

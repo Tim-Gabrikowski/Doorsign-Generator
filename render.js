@@ -1,4 +1,11 @@
-function renderPreview(configuration) {
+const convert_to_base64 = (file) =>
+	new Promise((response) => {
+		const file_reader = new FileReader();
+		file_reader.readAsDataURL(file);
+		file_reader.onload = () => response(file_reader.result);
+	});
+
+async function renderPreview(configuration) {
 	console.log("Rendering preview with configuration:", configuration);
 
 	// fill the header
@@ -26,7 +33,7 @@ function renderPreview(configuration) {
 	}
 
 	if (configuration.blocks.image.enabled) {
-		let imageBlock = generateImageBlock(configuration.blocks.image);
+		let imageBlock = await generateImageBlock(configuration.blocks.image);
 		mainArea.appendChild(imageBlock);
 	}
 }
@@ -73,12 +80,14 @@ function generateWarningBlock(warning) {
 }
 
 // Generates a div element representing the image block
-function generateImageBlock(image) {
+async function generateImageBlock(image) {
 	let imageDiv = document.createElement("div");
 	imageDiv.classList.add("image");
 
+	const my_image = await convert_to_base64(image.file);
+
 	let img = document.createElement("img");
-	img.src = image.src;
+	img.src = my_image;
 	img.alt = "Bild";
 	imageDiv.appendChild(img);
 

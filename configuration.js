@@ -54,6 +54,16 @@ function updateConfigurationDisplay() {
 		document.getElementById("imageBlockSettings").classList.add("disabled");
 	}
 
+	if (imageSelectInput.files.length > 0) {
+		document
+			.getElementById("imageSelectLabel")
+			.classList.add("fileSelected");
+	} else {
+		document
+			.getElementById("imageSelectLabel")
+			.classList.remove("fileSelected");
+	}
+
 	renderPersonList();
 }
 
@@ -74,9 +84,11 @@ function getWarningBlockInfo() {
 function getImageBlockInfo() {
 	return {
 		enabled: imageBlockEnableInput.checked,
-		src: document.getElementById("imageSrcInput").value,
+		file: document.getElementById("imageSelectInput").files[0],
 	};
 }
+const imageSelectInput = document.getElementById("imageSelectInput");
+imageSelectInput.addEventListener("change", updateConfigurationDisplay);
 
 function getPersonsBlockInfo() {
 	return {
