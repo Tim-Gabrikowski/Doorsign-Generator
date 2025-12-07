@@ -1,0 +1,78 @@
+/*
+Bundes Sans Web
+*/
+
+/* Regular */
+@font-face {
+	font-family: "BundesSansWeb";
+	src: url("BundesSansWeb/Regular.woff2") format("woff2"),
+		url("BundesSansWeb/Regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+
+/* Italic */
+@font-face {
+	font-family: "BundesSansWeb";
+	src: url("BundesSansWeb/Italic.woff2") format("woff2"),
+		url("BundesSansWeb/Italic.woff") format("woff");
+	font-weight: 400;
+	font-style: italic;
+}
+
+/* Bold */
+@font-face {
+	font-family: "BundesSansWeb";
+	src: url("BundesSansWeb/Bold.woff2") format("woff2"),
+		url("BundesSansWeb/Bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+}
+/* Bold Italic */
+@font-face {
+	font-family: "BundesSansWeb";
+	src: url("BundesSansWeb/BoldItalic.woff2") format("woff2"),
+		url("BundesSansWeb/BoldItalic.woff") format("woff");
+	font-weight: 700;
+	font-style: italic;
+}
+
+/*
+Bundes Serif Web
+*/
+
+/* Regular */
+@font-face {
+	font-family: "BundesSerifWeb";
+	src: url("BundesSerifWeb/Regular.woff2") format("woff2"),
+		url("BundesSerifWeb/Regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+
+/* Italic */
+@font-face {
+	font-family: "BundesSerifWeb";
+	src: url("BundesSerifWeb/Italic.woff2") format("woff2"),
+		url("BundesSerifWeb/Italic.woff") format("woff");
+	font-weight: 400;
+	font-style: italic;
+}
+
+/* Bold */
+@font-face {
+	font-family: "BundesSerifWeb";
+	src: url("BundesSerifWeb/Bold.woff2") format("woff2"),
+		url("BundesSerifWeb/Bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+}
+
+/* Bold Italic (if you have it) */
+@font-face {
+	font-family: "BundesSerifWeb";
+	src: url("BundesSerifWeb/BoldItalic.woff2") format("woff2"),
+		url("BundesSerifWeb/BoldItalic.woff") format("woff");
+	font-weight: 700;
+	font-style: italic;
+}
