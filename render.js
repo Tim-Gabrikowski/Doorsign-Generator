@@ -1,6 +1,13 @@
 function renderPreview(configuration) {
 	console.log("Rendering preview with configuration:", configuration);
 
+	// fill the header
+	let roomNameElement = document.getElementById("roomName");
+	roomNameElement.textContent = configuration.roomName;
+
+	let roomNumberElement = document.getElementById("roomNumber");
+	roomNumberElement.textContent = configuration.roomNumber;
+
 	// fill the main Area
 	let mainArea = document.getElementById("mainArea");
 	// Clear existing content

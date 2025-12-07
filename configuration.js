@@ -1,4 +1,8 @@
-let persons = [];
+let persons = [
+	{ name: "Max Mustermann", position: "Entwickler", important: true },
+	{ name: "Erika Musterfrau", position: "Designer", important: false },
+	{ name: "Hans Beispiel", position: "Manager", important: false },
+];
 
 function getCurrentConfiguration() {
 	let generalInfo = getGeneralInfo();
@@ -49,6 +53,8 @@ function updateConfigurationDisplay() {
 	} else {
 		document.getElementById("imageBlockSettings").classList.add("disabled");
 	}
+
+	renderPersonList();
 }
 
 function getGeneralInfo() {
@@ -111,23 +117,48 @@ function renderPersonList() {
 	persons.forEach((person, index) => {
 		let entryDiv = document.createElement("div");
 		entryDiv.classList.add("entry");
-		entryDiv.textContent = `${person.name} - ${person.position}${
-			person.important ? " (Wichtig)" : ""
-		}`;
+
+		let textDiv = document.createElement("div");
+
+		let nameElem = document.createElement("div");
+		nameElem.classList.add("name");
+		nameElem.textContent = person.name;
+		if (person.important) {
+			nameElem.classList.add("important");
+		}
+		textDiv.appendChild(nameElem);
+
+		let positionElem = document.createElement("div");
+		positionElem.classList.add("position");
+		positionElem.textContent = person.position;
+		textDiv.appendChild(positionElem);
+
+		let buttons = document.createElement("div");
+		buttons.classList.add("buttons");
 
 		// Add delete button
 		let deleteButton = document.createElement("button");
-		deleteButton.textContent = "Löschen";
+
+		let deleteImage = document.createElement("img");
+		deleteImage.src = "./img/delete.svg";
+		deleteImage.alt = "Löschen";
+		deleteButton.appendChild(deleteImage);
+
 		deleteButton.addEventListener("click", () => {
 			persons.splice(index, 1);
 			renderPersonList();
 		});
-		entryDiv.appendChild(deleteButton);
+		buttons.appendChild(deleteButton);
 
 		// if not first, add up button
+		let upButton = document.createElement("button");
+
+		let upImage = document.createElement("img");
+		upImage.src = "./img/arrow_up.svg";
+		upImage.alt = "Nach oben";
+		upButton.appendChild(upImage);
+
 		if (index > 0) {
-			let upButton = document.createElement("button");
-			upButton.textContent = "↑";
 			upButton.addEventListener("click", () => {
 				[persons[index - 1], persons[index]] = [
 					persons[index],
@@ -135,13 +166,19 @@ function renderPersonList() {
 				];
 				renderPersonList();
 			});
-			entryDiv.appendChild(upButton);
+		} else {
+			upButton.disabled = true;
 		}
+		buttons.appendChild(upButton);
 
 		// if not last, add down button
+		let downButton = document.createElement("button");
+
+		let downImage = document.createElement("img");
+		downImage.src = "./img/arrow_down.svg";
+		downImage.alt = "Nach unten";
+		downButton.appendChild(downImage);
 		if (index < persons.length - 1) {
-			let downButton = document.createElement("button");
-			downButton.textContent = "↓";
 			downButton.addEventListener("click", () => {
 				[persons[index + 1], persons[index]] = [
 					persons[index],
@@ -149,8 +186,13 @@ function renderPersonList() {
 				];
 				renderPersonList();
 			});
-			entryDiv.appendChild(downButton);
+		} else {
+			downButton.disabled = true;
 		}
+		buttons.appendChild(downButton);
+
+		entryDiv.appendChild(textDiv);
+		entryDiv.appendChild(buttons);
 
 		personListDiv.appendChild(entryDiv);
 	});
