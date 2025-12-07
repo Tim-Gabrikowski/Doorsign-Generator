@@ -134,6 +134,7 @@
 				</div>
 			</div>
 			<div id="controlButtons">
+				<button id="renderButton">Vorschau</button>
 				<button id="printButton">Drucken</button>
 			</div>
 		</div>
@@ -182,7 +183,9 @@
 			let configuration = getCurrentConfiguration();
 			await renderPreview(configuration);
 		}
-		setInterval(generatePreview, 500);
+		document
+			.getElementById("renderButton")
+			.addEventListener("click", generatePreview);
 
 		async function printPreview() {
 			await generatePreview();
