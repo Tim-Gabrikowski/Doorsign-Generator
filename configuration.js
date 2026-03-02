@@ -5,6 +5,7 @@ function getCurrentConfiguration() {
 	return {
 		roomNumber: generalInfo.roomNumber,
 		roomName: generalInfo.roomName,
+		unit: generalInfo.unit,
 		blocks: {
 			persons: getPersonsBlockInfo(),
 			warning: getWarningBlockInfo(),
@@ -67,6 +68,7 @@ function getGeneralInfo() {
 	return {
 		roomNumber: document.getElementById("roomNumberInput").value,
 		roomName: document.getElementById("roomNameInput").value,
+		unit: document.getElementById("unitInput").value,
 	};
 }
 function getWarningBlockInfo() {

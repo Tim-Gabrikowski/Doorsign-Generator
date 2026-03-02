@@ -10,6 +10,9 @@ async function renderPreview(configuration) {
 	let roomNameElement = document.getElementById("roomName");
 	roomNameElement.textContent = configuration.roomName;
 
+	let imageElement = document.getElementById("unit");
+	imageElement.src = `./img/logos/${configuration.unit}.svg`;
+
 	if (configuration.roomName.length >= 28) {
 		roomNameElement.classList.add("smallest");
 		roomNameElement.classList.remove("smaller");

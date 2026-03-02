@@ -8,11 +8,20 @@
 		<link rel="stylesheet" href="styles.css" />
 		<link rel="stylesheet" href="controlStyles.css" />
 		<link rel="stylesheet" href="signStyles.css" />
+				</script>
 	</head>
 	<body>
 		<div id="controls">
 			<h1>Türschild Generator</h1>
 			<div id="settingsContainer">
+				<div class="settingsBlock">
+					<h2>Generelles</h2>
+					<div class="input">
+						<label for="unitInput">Logo</label>
+						<select id="unitInput">
+						</select>
+					</div>
+				</div>
 				<div class="settingsBlock">
 					<h2>Raum</h2>
 					<div class="input">
@@ -146,8 +155,9 @@
 				<div class="roomName"><h1 id="roomName" class="smaller"></h1></div>
 				<div class="logo">
 					<img
-						src="./img/logo-ov.svg"
-						alt="Technisches Hilfswerk Ortsverband Hamburg-Mitte"
+						src="./img/logos/default.svg"
+						alt="Technisches Hilfswerk"
+						id="unit"
 					/>
 				</div>
 				<div class="mainArea" id="mainArea">
@@ -176,6 +186,26 @@
 			</div>
 		</div>
 	</body>
+	<script>
+			const LOGOS = {
+				default: "THW - Standard",
+				OHHM: "OV - Hamburg-Mitte",
+				OHHA: "OV - Hamburg-Altona",
+				OHHE: "OV - Hamburg-Eimsbüttel",
+				OHHN: "OV - Hamburg-Nord",
+				OHHW: "OV - Hamburg-Wandsbek",
+				OHHB: "OV - Hamburg-Bergedorf",
+				OHHH: "OV - Hamburg-Harburg",
+				OLAU: "OV - Lauenburg",
+			};
+			let logoSelect = document.getElementById("unitInput");
+			for (const [value, label] of Object.entries(LOGOS)) {
+				let option = document.createElement("option");
+				option.value = value;
+				option.textContent = label;
+				logoSelect.appendChild(option);
+			}
+		</script>
 	<script src="configuration.js"></script>
 	<script src="render.js"></script>
 	<script>
