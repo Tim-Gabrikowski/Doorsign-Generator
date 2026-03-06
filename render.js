@@ -5,7 +5,14 @@ const convert_to_base64 = (file) =>
 		file_reader.onload = () => response(file_reader.result);
 	});
 
+function setSignSize(width, height) {
+	document.body.style.setProperty("--sign-width", width + "mm");
+	document.body.style.setProperty("--sign-height", height + "mm");
+}
+
 async function renderPreview(configuration) {
+	setSignSize(configuration.size.width, configuration.size.height);
+
 	// fill the header
 	let roomNameElement = document.getElementById("roomName");
 	roomNameElement.textContent = configuration.roomName;

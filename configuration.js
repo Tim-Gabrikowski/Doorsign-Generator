@@ -6,6 +6,7 @@ function getCurrentConfiguration() {
 		roomNumber: generalInfo.roomNumber,
 		roomName: generalInfo.roomName,
 		unit: generalInfo.unit,
+		size: generalInfo.size,
 		blocks: {
 			persons: getPersonsBlockInfo(),
 			warning: getWarningBlockInfo(),
@@ -69,6 +70,10 @@ function getGeneralInfo() {
 		roomNumber: document.getElementById("roomNumberInput").value,
 		roomName: document.getElementById("roomNameInput").value,
 		unit: document.getElementById("unitInput").value,
+		size: {
+			width: document.getElementById("widthInput").value,
+			height: document.getElementById("heightInput").value,
+		},
 	};
 }
 function getWarningBlockInfo() {
@@ -208,3 +213,4 @@ function renderPersonList() {
 		personListDiv.appendChild(entryDiv);
 	});
 }
+

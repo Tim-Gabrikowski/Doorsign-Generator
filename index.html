@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Türschild Designer</title>
 		<style>
-			html {
+			body {
 				--sign-height: 105mm;
 				--sign-width: 149mm;
 			}
@@ -25,6 +25,14 @@
 						<label for="unitInput">Logo</label>
 						<select id="unitInput">
 						</select>
+					</div>
+					<div class="input">
+						<label for="widthInput">Breite (mm)</label>
+						<input type="number" id="widthInput" min="0" step="1" value="149">
+					</div>
+					<div class="input">
+						<label for="heightInput">Höhe (mm)</label>
+						<input type="number" id="heightInput" min="0" step="1" value="105">
 					</div>
 				</div>
 				<div class="settingsBlock">
