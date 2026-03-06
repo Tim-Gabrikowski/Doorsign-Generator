@@ -1,14 +1,14 @@
 @page {
 	/* Set page size here: */
-	height: 105mm;
-	width: 149mm;
+	height: var(--sign-height);
+	width: var(--sign-width);
 	margin: 0;
 }
 
 .page {
 	/* Set Page Size here: */
-	height: 105mm;
-	width: 149mm;
+	height: var(--sign-height);
+	width: var(--sign-width);
 
 	/* Font and margin settings  */
 	font-size: 12pt;
@@ -17,8 +17,8 @@
 
 	/* Grid settings */
 	display: grid;
-	grid-template-columns: 45mm 104mm;
-	grid-template-rows: 15mm 90mm;
+	grid-template-columns: 45mm calc(var(--sign-width) - 45mm);
+	grid-template-rows: 15mm calc(var(--sign-height) - 15mm);
 	grid-column-gap: 0px;
 	grid-row-gap: 0px;
 }
